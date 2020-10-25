@@ -7,6 +7,8 @@ services:
 before_install:
 
 script:
+  - echo "$DOCKER_PASSWORD"
+  - echo "$DOCKER_USERNAME"
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t dbllm/docker-front:latest .
   - docker push dbllm/docker-front:latest
