@@ -8,5 +8,4 @@ before_install:
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t dbllm/docker-front:latest .
-  - docker push dbllm/docker-front:latest
+  - docker build ./ -t html
