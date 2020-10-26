@@ -2,10 +2,12 @@ language: node_js
 node_js:
   - '12'
 services:
+  - npm install
   - docker
 
 before_install:
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build ./ -t html
+  - docker build -t  dbllm/docker-front:latest .
+  - docker push dbllm/docker-front:latest
